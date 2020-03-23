@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# The article controller
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
@@ -8,6 +11,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
+  end
+
+  def edit
     @article = Article.find(params[:id])
   end
 
@@ -22,7 +29,8 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def article_params
-      params.require(:article).permit(:title, :text)
-    end
+
+  def article_params
+    params.require(:article).permit(:title, :text)
+  end
 end
