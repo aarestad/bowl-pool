@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @bowl_matchup.year %>
+</p>
+
+<p>
+  <strong>Bowl game:</strong>
+  <%= @bowl_matchup.bowl_game_id %>
+</p>
+
+<p>
+  <strong>Away team:</strong>
+  <%= @bowl_matchup.away_team_id %>
+</p>
+
+<p>
+  <strong>Home team:</strong>
+  <%= @bowl_matchup.home_team_id %>
+</p>
+
+<p>
+  <strong>Home team point spread:</strong>
+  <%= @bowl_matchup.home_team_point_spread %>
+</p>
+
+<%= link_to 'Edit', edit_bowl_matchup_path(@bowl_matchup) %> |
+<%= link_to 'Back', bowl_matchups_path %>

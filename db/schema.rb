@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_020412) do
+ActiveRecord::Schema.define(version: 2020_03_26_021118) do
 
   create_table "bowl_games", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bowl_matchups", force: :cascade do |t|
+    t.integer "year"
+    t.integer "bowl_game_id", null: false
+    t.integer "away_team_id", null: false
+    t.integer "home_team_id", null: false
+    t.integer "home_team_point_spread"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["away_team_id"], name: "index_bowl_matchups_on_away_team_id"
+    t.index ["bowl_game_id"], name: "index_bowl_matchups_on_bowl_game_id"
+    t.index ["home_team_id"], name: "index_bowl_matchups_on_home_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -25,4 +38,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_020412) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bowl_matchups", "bowl_games"
+  add_foreign_key "bowl_matchups", "teams", column: "away_team_id"
+  add_foreign_key "bowl_matchups", "teams", column: "home_team_id"
 end
