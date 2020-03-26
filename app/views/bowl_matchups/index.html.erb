@@ -18,9 +18,9 @@
     <% @bowl_matchups.each do |bowl_matchup| %>
       <tr>
         <td><%= bowl_matchup.year %></td>
-        <td><%= bowl_matchup.bowl_game_id %></td>
-        <td><%= bowl_matchup.away_team_id %></td>
-        <td><%= bowl_matchup.home_team_id %></td>
+        <td><%= bowl_matchup.bowl_game.name %></td>
+        <td><%= bowl_matchup.away_team.name %></td>
+        <td><%= bowl_matchup.home_team.name %></td>
         <td><%= bowl_matchup.home_team_point_spread %></td>
         <td><%= link_to 'Show', bowl_matchup %></td>
         <td><%= link_to 'Edit', edit_bowl_matchup_path(bowl_matchup) %></td>
