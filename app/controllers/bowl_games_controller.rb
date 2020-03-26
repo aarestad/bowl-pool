@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BowlGamesController < ApplicationController
-  before_action :set_bowl_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_bowl_game, only: %i[show edit update destroy]
 
   # GET /bowl_games
   # GET /bowl_games.json
@@ -9,8 +11,7 @@ class BowlGamesController < ApplicationController
 
   # GET /bowl_games/1
   # GET /bowl_games/1.json
-  def show
-  end
+  def show; end
 
   # GET /bowl_games/new
   def new
@@ -18,8 +19,7 @@ class BowlGamesController < ApplicationController
   end
 
   # GET /bowl_games/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bowl_games
   # POST /bowl_games.json
@@ -62,13 +62,14 @@ class BowlGamesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bowl_game
-      @bowl_game = BowlGame.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bowl_game_params
-      params.require(:bowl_game).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bowl_game
+    @bowl_game = BowlGame.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bowl_game_params
+    params.require(:bowl_game).permit(:name)
+  end
 end

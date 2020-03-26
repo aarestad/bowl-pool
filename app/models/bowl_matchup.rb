@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BowlMatchup < ApplicationRecord
   belongs_to :bowl_game
   belongs_to :away_team

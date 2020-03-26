@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BowlMatchupsController < ApplicationController
-  before_action :set_bowl_matchup, only: [:show, :edit, :update, :destroy]
+  before_action :set_bowl_matchup, only: %i[show edit update destroy]
 
   # GET /bowl_matchups
   # GET /bowl_matchups.json
@@ -9,8 +11,7 @@ class BowlMatchupsController < ApplicationController
 
   # GET /bowl_matchups/1
   # GET /bowl_matchups/1.json
-  def show
-  end
+  def show; end
 
   # GET /bowl_matchups/new
   def new
@@ -18,8 +19,7 @@ class BowlMatchupsController < ApplicationController
   end
 
   # GET /bowl_matchups/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bowl_matchups
   # POST /bowl_matchups.json
@@ -62,13 +62,14 @@ class BowlMatchupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bowl_matchup
-      @bowl_matchup = BowlMatchup.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bowl_matchup_params
-      params.require(:bowl_matchup).permit(:year, :bowl_game_id, :away_team_id, :home_team_id, :home_team_point_spread)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bowl_matchup
+    @bowl_matchup = BowlMatchup.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bowl_matchup_params
+    params.require(:bowl_matchup).permit(:year, :bowl_game_id, :away_team_id, :home_team_id, :home_team_point_spread)
+  end
 end
