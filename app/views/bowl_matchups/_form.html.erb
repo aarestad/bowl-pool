@@ -1,0 +1,42 @@
+<%= form_with(model: bowl_matchup, local: true) do |form| %>
+  <% if bowl_matchup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bowl_matchup.errors.count, "error") %> prohibited this bowl_matchup from being saved:</h2>
+
+      <ul>
+        <% bowl_matchup.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bowl_game %>
+    <%= form.text_field :bowl_game %>
+  </div>
+
+  <div class="field">
+    <%= form.label :away_team %>
+    <%= form.text_field :away_team %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_team %>
+    <%= form.text_field :home_team %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_team_point_spread %>
+    <%= form.number_field :home_team_point_spread %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

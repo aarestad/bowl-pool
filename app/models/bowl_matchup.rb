@@ -1,0 +1,2 @@
+class BowlMatchup < ApplicationRecord
+end

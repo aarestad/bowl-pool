@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 1
+  bowl_game: 
+  away_team: 
+  home_team: 
+  home_team_point_spread: 1
+
+two:
+  year: 1
+  bowl_game: 
+  away_team: 
+  home_team: 
+  home_team_point_spread: 1
